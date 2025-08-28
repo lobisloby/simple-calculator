@@ -1,11 +1,19 @@
 const buttons = document.querySelectorAll(".btn");
 let display = document.querySelector("#mainHeader")
 let history = document.querySelector("#history")
+const toggle = document.querySelector("#switch")
 console.log(display.textContent)
 let start = true;
 let expression = "0";
 
-
+toggle.addEventListener("change", () => {
+    const html = document.documentElement;
+    if (toggle.checked) {
+        html.setAttribute('data-theme', 'dark')
+    } else {
+        html.setAttribute('data-theme', 'light')
+    }
+})
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
@@ -14,6 +22,7 @@ buttons.forEach(button => {
 
         if (value === "=") {
             start = true;
+
             try {
                 const expre = expression;
                 const result = eval(expression); // evaluate expression
@@ -34,7 +43,6 @@ buttons.forEach(button => {
                 expression += value;
                 refreshDisplay();
             }
-
             start = false;
         }
 

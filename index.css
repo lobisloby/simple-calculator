@@ -3,8 +3,31 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Define colors */
+:root {
+  --BG-COLOR: #f7f8fb;
+  --SHDOW-COLOR: #333;
+  --TEXT-COLOR: #109dff;
+  --BUTTON-BG: #fff;
+  --BUTTON-TEXT: #858585;
+  --SCRNTEXT-COLOR: black;
+  --LAB-COLOR: grey;
+  --EQL-COLOR: radial-gradient(circle, #19acff 40%, #b2daff 100%);
+}
+
+[data-theme="dark"] {
+  --BG-COLOR: #17181a; /* dark background */
+  --SHDOW-COLOR: #00000080; /* subtle black shadow with opacity */
+  --TEXT-COLOR: #4da6ff; /* lighter blue for buttons/text */
+  --BUTTON-BG: #303136; /* dark button background */
+  --BUTTON-TEXT: #e0e0e0; /* light button text */
+  --SCRNTEXT-COLOR: #e0e0e0; /* main text */
+  --LAB-COLOR: #aaaaaa; /* lighter gray for labels */
+  --EQL-COLOR: radial-gradient(circle, #0a6ea0 40%, #1b3b50 100%);
+}
 
 body {
+  background-color: var(--BUTTON-BG);
   min-width: 375px;
   height: 612px;
   display: flex;
@@ -15,18 +38,19 @@ body {
 .continer {
   min-width: inherit;
   height: inherit;
-  background-color: #f7f8fb;
+  background-color: var(--BG-COLOR);
   display: flex;
   justify-content: space-around;
   flex-flow: column nowrap;
   margin: 1rem;
   padding: 3rem;
   border-radius: 35px;
-  box-shadow: 1px 2px 5px #333;
+  box-shadow: 1px 2px 5px var(--SHDOW-COLOR);
   gap: 0.5em;
 }
 
 .textEdit {
+  color: var(--SCRNTEXT-COLOR);
   min-width: 100%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   display: block;
@@ -35,7 +59,7 @@ body {
 }
 
 #history {
-  color: #858585;
+  color: var(--BUTTON-TEXT);
 }
 
 .continer_numberOperation {
@@ -54,7 +78,7 @@ body {
   grid-row: 5/7;
   width: 62px;
   font-size: large;
-  background: radial-gradient(circle, #19acff 40%, #b2daff 100%);
+  background: var(--EQL-COLOR);
   border: none;
   color: #b2daff;
   border-radius: 15px;
@@ -68,14 +92,14 @@ body {
   width: 144px;
   height: 60px;
   border: none;
-  background-color: white;
+  background-color: var(--BUTTON-BG);
   color: #109dff;
   border-radius: 15px;
   cursor: pointer;
 }
 
 #sienComp {
-  background-color: white;
+  background-color: var(--BUTTON-BG);
   color: #7cc9ff;
   width: 62px;
   height: 40px;
@@ -85,7 +109,7 @@ body {
 }
 
 .head_comp {
-  background-color: white;
+  background-color: var(--BUTTON-BG);
   color: #858585;
   font-size: large;
   border: none;
@@ -96,7 +120,7 @@ body {
 }
 
 .Num {
-  background-color: white;
+  background-color: var(--BUTTON-BG);
   color: #7cc9ff;
   width: 62px;
   height: 60px;
@@ -118,7 +142,7 @@ label {
   text-indent: -9999px; /* hides text */
   width: 40px; /* medium width */
   height: 20px; /* medium height */
-  background: grey;
+  background: var(--LAB-COLOR);
   display: block;
   border-radius: 20px; /* fully rounded */
   position: relative;
@@ -131,7 +155,7 @@ label:after {
   left: 2px;
   width: 16px; /* knob size */
   height: 16px;
-  background: #fff;
+  background: var(--BG-COLOR);
   border-radius: 50%;
   transition: 0.6s;
 }
